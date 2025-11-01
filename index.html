@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EchoBlogPress - Ideas Worth Reading</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            primary: '#1A1A1A',
+            secondary: '#6941C6',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="text-2xl font-bold text-primary dark:text-white font-serif">EchoBlogPress</a>
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+          <svg id="sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.485-11.515l-.707.707M5.636 18.364l-.707.707m12.021 0l-.707-.707M5.636 5.636l-.707-.707M12 7a5 5 0 100 10 5 5 0 000-10z"/>
+          </svg>
+          <svg id="moon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-purple-50 to-white dark:from-gray-800 dark:to-gray-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-5xl md:text-6xl font-bold font-serif text-primary dark:text-white leading-tight">
+            Ideas that echo.<br>
+            <span class="text-secondary">Stories that matter.</span>
+          </h1>
+          <p class="mt-6 text-lg text-gray-600 dark:text-gray-300">
+            Thoughtful writing on technology, culture, design, and the future.
+          </p>
+        </div>
+        <div id="featured-post" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+          <!-- JS injects here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Section -->
+  <section class="py-12 border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-bold font-serif text-primary dark:text-white">Trending</h2>
+        <a href="#" class="text-secondary hover:underline text-sm font-medium">See all</a>
+      </div>
+      <div id="trending-posts" class="grid md:grid-cols-3 gap-6">
+        <!-- JS injects here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-12">
+        <div class="flex-1">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold font-serif text-primary dark:text-white">Latest Stories</h2>
+            <select id="category-filter" class="text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1 bg-white dark:bg-gray-800">
+              <option value="">All Topics</option>
+              <option value="Technology">Technology</option>
+              <option value="Design">Design</option>
+              <option value="Culture">Culture</option>
+              <option value="Business">Business</option>
+            </select>
+          </div>
+
+          <div id="posts-container" class="space-y-12">
+            <!-- JS injects here -->
+          </div>
+
+          <div class="mt-12 text-center">
+            <button id="load-more" class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-full text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+              Load More
+            </button>
+          </div>
+        </div>
+
+        <aside class="lg:w-80">
+          <div class="sticky top-24">
+            <h3 class="text-lg font-bold font-serif text-primary dark:text-white mb-4">Discover Topics</h3>
+            <div id="topic-tags" class="flex flex-wrap gap-2">
+              <!-- JS injects here -->
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-12 mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h3 class="text-xl font-bold font-serif text-primary dark:text-white">EchoBlogPress</h3>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">© 2025 EchoBlogPress. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // ==== DATA (now with `link`) ====
+    const posts = [
+      {
+        title: "From Nightlife to Neutrals: Socks That Speak Style",
+        excerpt: "Designed for men who style from the ground up, our socks range from sheer statement pieces and pride-forward graphics to solid calf socks and performance-ready ankle cuts. Whether you're layering for visibility, comfort, or mood, each pair delivers breathable softness, stretch resilience, and a tailored fit that moves with you.",
+        category: "Lifestyle",
+        readTime: 5,
+        date: "Nov 01, 2025",
+        featured: true,
+        image: "https://i.ibb.co.com/v6WrBWyg/breathable-men-s-socks.jpg",
+        link: "/breathable-men-s-socks.html"
+      },
+    ];
+
+    const categories = ["Technology", "Lifestyle", "Culture", "Business"];
+
+    // ==== DOM ====
+    const featuredPostEl   = document.getElementById('featured-post');
+    const trendingPostsEl  = document.getElementById('trending-posts');
+    const postsContainer   = document.getElementById('posts-container');
+    const topicTagsEl      = document.getElementById('topic-tags');
+    const categoryFilter   = document.getElementById('category-filter');
+    const loadMoreBtn      = document.getElementById('load-more');
+
+    let displayedPosts = 4;
+    let filteredPosts  = [...posts];
+
+    // ==== RENDER ====
+    function renderFeatured() {
+      const featured = posts.find(p => p.featured);
+      if (!featured) return;
+
+      featuredPostEl.innerHTML = `
+        <a href="${featured.link}" class="block">
+          <img src="${featured.image}" alt="${featured.title}" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+              <span class="bg-purple-100 text-secondary px-2 py-1 rounded-full text-xs font-medium">Featured</span>
+              <span class="mx-2">•</span>
+              <span>${featured.readTime} min read</span>
+            </div>
+            <h2 class="text-2xl font-bold font-serif text-primary dark:text-white clamp-2">
+              ${featured.title}
+            </h2>
+            <p class="mt-2 text-gray-600 dark:text-gray-300 clamp-3">
+              ${featured.excerpt}
+            </p>
+            <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">${featured.date}</p>
+          </div>
+        </a>
+      `;
+    }
+
+    function renderTrending() {
+      const trending = posts.filter(p => p.trending).slice(0, 6);
+      trendingPostsEl.innerHTML = trending.map((post, i) => `
+        <a href="${post.link}" class="flex group">
+          <div class="text-4xl font-bold text-gray-200 dark:text-gray-700 mr-4 select-none">0${i + 1}</div>
+          <div class="flex-1">
+            <h3 class="font-bold text-primary dark:text-white group-hover:text-secondary transition clamp-2">
+              ${post.title}
+            </h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">${post.date} • ${post.readTime} min read</p>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    function renderPosts() {
+      const toShow = filteredPosts.slice(0, displayedPosts);
+      postsContainer.innerHTML = toShow.map(post => `
+        <article class="group border-b border-gray-200 dark:border-gray-800 pb-12 last:border-0">
+          <a href="${post.link}" class="grid md:grid-cols-4 gap-6">
+            <div class="md:col-span-3">
+              <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+                <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">${post.category}</span>
+                <span class="mx-2">•</span>
+                <span>${post.readTime} min read</span>
+              </div>
+              <h3 class="text-xl font-bold font-serif text-primary dark:text-white group-hover:text-secondary transition clamp-2 mt-1">
+                ${post.title}
+              </h3>
+              <p class="mt-2 text-gray-600 dark:text-gray-300 clamp-3">
+                ${post.excerpt}
+              </p>
+              <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">${post.date}</p>
+            </div>
+            ${post.image ? `
+            <div class="md:col-span-1">
+              <img src="${post.image}" alt="${post.title}" class="w-full h-40 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300">
+            </div>
+            ` : ''}
+          </a>
+        </article>
+      `).join('');
+    }
+
+    function renderTopics() {
+      topicTagsEl.innerHTML = categories.map(cat => `
+        <a href="#" data-category="${cat}" class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm hover:bg-secondary hover:text-white transition">
+          ${cat}
+        </a>
+      `).join('');
+    }
+
+    // ==== FILTER & LOAD MORE ====
+    categoryFilter.addEventListener('change', e => {
+      const cat = e.target.value;
+      filteredPosts = cat ? posts.filter(p => p.category === cat) : [...posts];
+      displayedPosts = 4;
+      renderPosts();
+      loadMoreBtn.style.display = displayedPosts >= filteredPosts.length ? 'none' : 'block';
+    });
+
+    loadMoreBtn.addEventListener('click', () => {
+      displayedPosts += 4;
+      renderPosts();
+      if (displayedPosts >= filteredPosts.length) loadMoreBtn.style.display = 'none';
+    });
+
+    topicTagsEl.addEventListener('click', e => {
+      if (e.target.tagName === 'A') {
+        const cat = e.target.dataset.category;
+        categoryFilter.value = cat;
+        filteredPosts = cat ? posts.filter(p => p.category === cat) : [...posts];
+        displayedPosts = 4;
+        renderPosts();
+        loadMoreBtn.style.display = 'block';
+      }
+    });
+
+    // ==== DARK MODE ====
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun');
+    const moonIcon = document.getElementById('moon');
+
+    if (localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      sunIcon.classList.remove('hidden');
+      moonIcon.classList.add('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.theme = 'dark';
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      } else {
+        localStorage.theme = 'light';
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      }
+    });
+
+    // ==== INIT ====
+    renderFeatured();
+    renderTrending();
+    renderPosts();
+    renderTopics();
+  </script>
+</body>
+</html>
